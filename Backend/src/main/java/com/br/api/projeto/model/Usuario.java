@@ -8,48 +8,53 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "usuario")
 public class Usuario {
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "email",length = 50,nullable = true )
+
+	@Column(name = "email", length = 50, nullable = true)
 	private String email;
-	
-	@Column(name = "usuario", length = 200,nullable = true )
-	private String usuario;
-	
-	@Column(name = "senha", columnDefinition = "Text",nullable = true )
+
+	@Column(name = "nome", length = 200, nullable = true)
+	private String nome;
+
+	@Column(name = "senha", columnDefinition = "Text", nullable = true)
 	private String senha;
-	
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getUsuario() {
-		return usuario;
+
+	public String getNome() {
+		return nome;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
+
 	public String getSenha() {
 		return senha;
 	}
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
-	
-}
 
+}
